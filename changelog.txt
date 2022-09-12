@@ -1,0 +1,54 @@
+2022/08/17 split long craft lists into multiple messages, new random quote
+2022/07/20 badges - 2022 catlorette rings
+2022/07/17 more 2022 catlorette badges
+2022/07/16 added 2022 catlorette badges, moved catlorette badges to folder
+2022/07/14 bunch of updates
+  cat paid floors added: archery, balconygarden, catcafe, corn, duck, outdoorpool, waterfight
+  cat prestige added: 
+    atlantisprestige, autumnwalkprestige, balconygardenprestige, breadprestige, 
+    minobeachprestige, minoforestprestige, outdoorpoolprestige,
+    bakingprestige, yardsaleprestige, deliprestige, rainyprestige, minigolfprestige
+  dog paid floors added: catfloor, dogspa, donutfloat, highfashion, kpop, stargazing, tarot
+  dog tower floors added: sugarland, wrestling, hairsalon, beach
+2022/02/15 add hoard commands
+2022/02/14 removed banned servers, switched to new bot (new token)
+2022/02/13 added starsgoal
+2022/02/11 
+  bot back up except in fearless whispurrs discord
+  orange removed from badge admin
+  starsmax allowed in all channels
+2022/02/09 brought down bot - display error msg always
+2022/01/25 refactored badge code and categories, added fitness category and badge 1 
+2022/01/19 dg cosmicunicorns floor
+2022/01/12 doggydaycare, supercatsquadprestige, asianfoodprestige
+2022/01/01 multi badge add
+2021/12/31 FR anniversary and lunar new year badges
+2021/12/30 yule and festivus badges
+2021/12/29 gold and silver medal badges, las posadas and soyal badges, pink egg
+2021/12/28 diwali and eid badges
+2021/12/27 holiday badge category; christmas, hannukah, kwanzaa badges; new quote
+2021/12/09 added rainy, minigolf, hatcatsprestige floors in cat. added craft total to display message
+2021/11/29 added blue frgem2 badge, allow orange and akat to assign badges
+2021/11/27 added frgem badge
+2021/11/22 
+  added dinosaurs, heavymetal, gemstones floors in dog
+  added freshfruit floor in cat
+  updated helptext for starsmax in tcc
+  random quotes for access denied msg
+  removed starsmax from FR channels and enabled in DMs
+2021/11/05 added minigame participation (phoenix ruff) badge images/phoenixruff.png
+2021/11/04 
+  deprecated the old starsmax
+  added a new starsmax in new file clubevent.py that is way stronger
+  updated messages and readme to match
+2021/10/18 added aquarium, autumn walk, super cat squad in cat recipes
+2021/08/13 added calendar tag for telling what day/event it is
+2021/08/11 added deli floor in cg
+2021/07/29 
+  added dog game support and recipes
+  refactored code to take 'cat' or 'dog' as param, for dog game support
+  fixed bugs in tattoo shop and airport CG recipes
+  fixed bug that never counted bronze (i typed copper in a key spot)
+  refactored badge code
+  updated help text
+2021/07/29 created change log. prior to now we have cat game crafting recipes, TCC crafting schedules for room, 3k, and starsmax, and some badges (easter and catlorette)
