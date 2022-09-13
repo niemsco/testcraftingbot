@@ -8,7 +8,7 @@ from recipes import getCraftsCat, getRecipeCat, floorSpellcheckCat
 from recipesdog import getCraftsDog, getRecipeDog, floorSpellcheckDog
 from tcc import room, stars3k, helptcc, errtcc
 from clubevent import maxstarshelper,goalstarshelper
-#from badges import badgeAddMulti, badgeClear, getBadges
+from badges import badgeAddMulti, badgeClear, getBadges
 from keep_alive import keep_alive
 
 def add_decos(user,decos,category):
