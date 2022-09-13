@@ -11,6 +11,7 @@ from clubevent import maxstarshelper,goalstarshelper
 #from badges import badgeAddMulti, badgeClear, getBadges
 from keep_alive import keep_alive
 
+
 def add_decos(user,decos,category):
   if category=="": category='cat'
   argAry=interpretArgs(decos,category)
