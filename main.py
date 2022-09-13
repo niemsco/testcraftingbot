@@ -193,9 +193,7 @@ async def on_message(message):
 
   if message.author == client.user: 
     return
-
-  print(message.author)
-  print(message.content)
+  
   msg = message.content
 
   
@@ -203,7 +201,6 @@ async def on_message(message):
     return
 
     
- 
   if msg.startswith('$hello'):
     await message.channel.send('Hello, world!')
     return
