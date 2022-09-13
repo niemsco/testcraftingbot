@@ -177,7 +177,7 @@ def showBadges(user,category):
   return ["", file, embedmsg]
 
 
-client = discord.Client()
+client = discord.Client(intents=discord.Intents.default())
 
 @client.event
 async def on_ready():
@@ -185,14 +185,15 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-  print(message.content)
+
   if message.author == client.user: 
     return
 
-  print('we are here # 2')
+  print(message.author)
+  print(message.content)
   msg = message.content
 
-  print(msg)
+  
   if not msg.startswith('$'):
     return
 
