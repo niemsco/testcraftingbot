@@ -177,7 +177,7 @@ def showBadges(user,category):
   return ["", file, embedmsg]
 
 
-client = discord.Client(intents=discord.Intents.default())
+client = discord.Client()
 
 @client.event
 async def on_ready():
