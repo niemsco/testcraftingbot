@@ -1,5 +1,4 @@
-discord.py
-flask
+discord
 python-dotenv
 PyNaCl
 dnspython
