@@ -189,13 +189,13 @@ async def on_message(message):
   if message.author == client.user: 
     return
 
-  
+  print('we are here # 2')
   msg = message.content
 
   if not msg.startswith('$'):
     return
 
-  # $hello: prints Hello, world!  
+  #$hello: prints Hello, world!  
   if msg.startswith('$hello'):
     await message.channel.send('Hello, world!')
     return
