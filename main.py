@@ -34,7 +34,8 @@ def add_decos(user,decos,category):
       decoslist.append(hash)
     else:
       alreadypresent=alreadypresent+", "+hash
-  decoslist.sort()
+  #decoslist.sort()
+  sorted(decoslist);
   db[userkey] = decoslist
 
   if len(alreadypresent)==0:
