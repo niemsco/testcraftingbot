@@ -185,8 +185,8 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-  if message.author == client.user:
-    print('we are here')
+  print('we are here')
+  if message.author == client.user: 
     return
 
   
