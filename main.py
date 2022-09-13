@@ -433,8 +433,9 @@ async def on_message(message):
 
 
 keep_alive()
+TOKEN = os.getenv("DISCORD_TOKEN")
 
-client.run((MTAxOTAxMzI1MjcyMzc2OTQzNA.GULS6t.aPyWOdLGiXlvNzns38aE4B4RLOSHBYa3cAet_g))
+bot.run(TOKEN)
 
 # the code to check for server, for functions that have to be run from a server
 #try:      #checking for server ID
