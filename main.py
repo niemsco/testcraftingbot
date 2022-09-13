@@ -195,7 +195,8 @@ async def on_message(message):
   if not msg.startswith('$'):
     return
 
-  #$hello: prints Hello, world!  
+    print('we are here # 3')
+ 
   if msg.startswith('$hello'):
     print('received $hello')
     await message.channel.send('Hello, world!')
