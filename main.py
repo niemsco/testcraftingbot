@@ -200,7 +200,6 @@ async def on_message(message):
     
  
   if msg.startswith('$hello'):
-    print('received $hello')
     await message.channel.send('Hello, world!')
     return
 
