@@ -34,6 +34,7 @@ def add_decos(user,decos,category):
     else:
       alreadypresent=alreadypresent+", "+hash
   #decoslist.sort()
+  #it was required to move to sorted per heroku recommendation
   sorted(decoslist);
   db[userkey] = decoslist
 
@@ -179,7 +180,7 @@ def showBadges(user,category):
   embedmsg.set_image(url="attachment://image.png")
   return ["", file, embedmsg]
 
-
+# it was necessary to delcare message intent (appropriate discord bot also need to be set in developer portal
 intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
@@ -437,10 +438,10 @@ async def on_message(message):
     await message.channel.send(ary[0])
     return
 
-
+# not necessary on heroku, also remove call to server object
 #keep_alive()
 
-
+# DISCORD_TOKEN defined in heroku env_variables 
 client.run(os.environ['DISCORD_TOKEN'])
 
 # the code to check for server, for functions that have to be run from a server
