@@ -192,10 +192,11 @@ async def on_message(message):
   print('we are here # 2')
   msg = message.content
 
+  print(msg)
   if not msg.startswith('$'):
     return
 
-    print('we are here # 3')
+    
  
   if msg.startswith('$hello'):
     print('received $hello')
