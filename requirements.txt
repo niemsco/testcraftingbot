@@ -4,3 +4,4 @@ PyNaCl
 dnspython
 replit
 flask
+Pillow
