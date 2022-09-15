@@ -93,6 +93,7 @@ def show_msg(user,category):
   userkey=getUserKey(user, category)
   if not r.exists(userkey): return ["Planned decos: none"]
   
+  print(r.get(userkey))
   decoslist = Convert(r.get(userkey))
   total=len(decoslist)
   if total==0: return ["Planned decos: none"]
