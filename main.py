@@ -28,6 +28,8 @@ def add_decos(user,decos,category):
   userkey=getUserKey(user,category)
   #REDIS CODE
   decoslist = r.get(userkey)
+  print('decolist')
+  print(decoslist)
   alreadypresent=""
   #userkey=getUserKey(user,category)
   #if userkey in db.keys():
