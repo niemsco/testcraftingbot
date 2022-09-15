@@ -32,10 +32,10 @@ def add_decos(user,decos,category):
   print(decoslist)
   alreadypresent=""
   #userkey=getUserKey(user,category)
-  #if userkey in db.keys():
+  if decolist is None:
   #  decoslist = db[userkey]
   #else:
-  #  decoslist = []
+    decoslist = []
   for x in range (minDeco, maxDeco+1):
     hash=floor+"/"+str(x)
     if hash not in decoslist:
