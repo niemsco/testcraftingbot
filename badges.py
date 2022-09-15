@@ -1,4 +1,6 @@
 #import discord
+import redis
+
 from os import environ
 
 #from discord.ext import commands
