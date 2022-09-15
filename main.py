@@ -46,7 +46,8 @@ def add_decos(user,decos,category):
       alreadypresent=alreadypresent+", "+hash
   #decoslist.sort()
   #it was required to move to sorted per heroku recommendation
-  sorted(decoslist);
+  #sorted(decoslist);
+  decoslist.sort()
   r.set(userkey, ' '.join(decoslist))
   #print(r.get(userkey))
 
