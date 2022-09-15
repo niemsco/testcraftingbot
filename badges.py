@@ -1,11 +1,9 @@
 #import discord
 from os import environ
-#environ["REPLIT_DB_URL"] = "https://kv.replit.com/v0/eyJhbGciOiJIUzUxMiIsImlzcyI6ImNvbm1hbiIsImtpZCI6InByb2Q6MSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb25tYW4iLCJleHAiOjE2NjMxOTk1MzAsImlhdCI6MTY2MzA4NzkzMCwiZGF0YWJhc2VfaWQiOiI5NWI0MjhiNy04NGE3LTQ5ODktYmZiZC01NDNhMzcxYWQzNmIiLCJ1c2VyIjoiU2NvdHROaWVtYW5uIiwic2x1ZyI6IlN3ZWV0Qm90In0.PqKEYwiSkGuYswO7NhMV5utCgk8PAhNoV81OcJCIv6FaZe7emOOG9M1KutF-n9GV_nvRLO6ordKFMq9sQdm37A"
-environ["REPLIT_DB_URL"] = "https://kv.replit.com/v0/eyJhbGciOiJIUzUxMiIsImlzcyI6ImNvbm1hbiIsImtpZCI6InByb2Q6MSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb25tYW4iLCJleHAiOjE2NjMzMjIyNzIsImlhdCI6MTY2MzIxMDY3MiwiZGF0YWJhc2VfaWQiOiI5NWI0MjhiNy04NGE3LTQ5ODktYmZiZC01NDNhMzcxYWQzNmIiLCJ1c2VyIjoiU2NvdHROaWVtYW5uIiwic2x1ZyI6IlN3ZWV0Qm90In0.FSoG-qK70XAq837M-rHcL63XxGi5dVGpngvjsYbTBQOHBLkUQePCcDdkCByRQpz8zxSsM80gsk_79VyXwwOt-g"
 
-from replit import db
 #from discord.ext import commands
 from PIL import Image
+
 
 def badgeCategories(): # category names can't contain tilda '~', lowercase preferred
   return ['easter','catlorette','mybadges','holiday','fitness']
@@ -32,21 +30,24 @@ def badgeAdd(userId,category,badgeId):
   badgefile = getFile(category,badgeId)
   if not badgefile: return
 
-  if hash in db.keys():
-    badgelist = db[hash]
+  if r.exists(hash):
+    badgelist = Convert(r.get(hash).decode())
   else:
     badgelist = []
 
   if badgefile not in badgelist:
     badgelist.append(badgefile)
-  db[hash]=badgelist
+  
+  #db[hash]=badgelist
+  r.set(hash, ' '.join(badgelist))
 
   return
 
 def badgeClear(userId,category):
   user=stripUserId(userId)
   hash='badges~'+str(user)+"~"+category
-  db[hash]=[]
+  #db[hash]=[]
+  r.del(hash)
   return
 
 def combineImg(list_im): #pass in array of images
@@ -74,8 +75,8 @@ def getBadges(userId,category):
   user=stripUserId(userId)
   hash="badges~"+str(user)+"~"+category
   #print(hash)
-  if hash in db.keys():
-    badgeAry = db[hash]
+  if r.exists(hash):
+    badgeAry = Convert(r.get(hash).decode())
     return ["",combineImg(badgeAry),getEmbedTitle(category)]
   else: 
     return [getNoun(category),"",""]
