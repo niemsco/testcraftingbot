@@ -90,10 +90,9 @@ def clear_decos(user, category):
 def show_msg(user,category):
   if category=="": category='cat'
   userkey=getUserKey(user, category)
-  decoslist = Convert(r.get(userkey))
-  if decoslist is none: return ["Planned decos: none"]
+  if userkey not in db.keys(): return ["Planned decos: none"]
   
-  
+  decoslist = db[userkey]
   total=len(decoslist)
   if total==0: return ["Planned decos: none"]
     
