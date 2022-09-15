@@ -43,10 +43,10 @@ def add_decos(user,decos,category):
   userkey=getUserKey(user,category)
   if r.exists(userkey):
     decoslist = Convert(r.get(userkey))
+    print(decoslist)
   else:
     decoslist = []
   
-print(decoslist)
   for x in range (minDeco, maxDeco+1):
     hash=floor+"/"+str(x)
     if hash not in decoslist:
