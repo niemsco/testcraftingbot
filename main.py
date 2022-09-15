@@ -19,15 +19,7 @@ def Convert(string):
     li = list(string.split(" "))
     return li
   
-def listToString(s):
-    # initialize an empty string
-    str1 = ""
-    # traverse in the string
-    for ele in s:
-        str1 += ele
- 
-    # return string
-    return str1
+
 
 def add_decos(user,decos,category):
   if category=="": category='cat'
@@ -43,7 +35,6 @@ def add_decos(user,decos,category):
   userkey=getUserKey(user,category)
   if r.exists(userkey):
     decoslist = Convert(r.get(userkey))
-    print(decoslist)
   else:
     decoslist = []
   
@@ -57,6 +48,7 @@ def add_decos(user,decos,category):
   #it was required to move to sorted per heroku recommendation
   sorted(decoslist);
   r.set(userkey, ' '.join(decoslist))
+  print(r.get(userkey))
 
   if len(alreadypresent)==0:
     return "Decos added. Happy crafting!"
