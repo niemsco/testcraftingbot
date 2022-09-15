@@ -257,28 +257,30 @@ async def on_message(message):
     try: mult = (float)(msg.split("$multiplier",1)[1])
     except: 
       await message.channel.send(errtcc())
-    db["multiplier"] = mult
+    #db["multiplier"] = mult
+    r.set("multiplier", ' '.join(mult))
     await message.channel.send("Multiplier set")
     return
 
   if msg.startswith('$room'):
-    await message.channel.send(room(db["multiplier"]))
+    await message.channel.send(room(r.get("multiplier").decode())
     return
 
   if msg.startswith('$stars3k'):
-    await message.channel.send(stars3k(db["multiplier"]))
+    await message.channel.send(stars3k(r.get("multiplier").decode())
     return
 
   if msg.startswith('$pot'):
     if msg.startswith('$potclear'):
       db["community pot"] = 0
+      r.set("community pot", 0)
       await message.channel.send("Community pot cleared.")
       return
     if msg.startswith('$potshow'):
-      await message.channel.send("Community pot: "+ str(db["community pot"]))
+      await message.channel.send("Community pot: "+ str(r.get("community pot").decode())
       return
     mats = msg.split("$pot",1)[1]
-    db["community pot"] = int(db["community pot"])+int(mats)
+    #db["community pot"] = int(db["community pot"])+int(mats)
     await message.channel.send("Mats added to community pot.")
     return
 
@@ -377,20 +379,20 @@ async def on_message(message):
     
   if msg.startswith('$hoard'):
     userkey = 'hoard~'+str(user)
-    if userkey not in db.keys(): db[userkey]=0
-    if msg.startswith('$hoardshow'):
-      await message.channel.send("Total: "+str(db["hoard"])+"\nMy lines: "+str(db[userkey]))
+   # if userkey not in db.keys(): db[userkey]=0
+  #  if msg.startswith('$hoardshow'):
+  #    await message.channel.send("Total: "+str(db["hoard"])+"\nMy lines: "+str(db[userkey]))
       return
     if msg.startswith('$hoardall'):
       if message.author.id not in [721843920404742205,655087300140597268]:
         await message.channel.send(randQuote())
         return
-      outmsg="**Total:** "+str(db["hoard"])
-      keys=db.prefix("hoard~")
+   #   outmsg="**Total:** "+str(db["hoard"])
+   #   keys=db.prefix("hoard~")
       for key in keys:
-        dispkey = key.replace("hoard~","hoarddisp~")
-        if int(db[key]) > 0: outmsg=outmsg+"\n"+db[dispkey]+": "+str(db[key])
-      await message.channel.send(outmsg)
+   #     dispkey = key.replace("hoard~","hoarddisp~")
+    #    if int(db[key]) > 0: outmsg=outmsg+"\n"+db[dispkey]+": "+str(db[key])
+ #     await message.channel.send(outmsg)
       return
     if msg.startswith('$hoardclear'):
       if message.author.id not in [721843920404742205,655087300140597268]:
@@ -398,7 +400,7 @@ async def on_message(message):
         return
       keys=db.prefix("hoard~")
       for key in keys: del db[key]
-      db["hoard"]=0
+  ##    db["hoard"]=0
       await message.channel.send("Hoard reset!")
       return
 
