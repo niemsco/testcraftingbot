@@ -196,6 +196,8 @@ async def on_message(message):
     return
   
   msg = message.content
+  print(message.author)
+  print(message.content)
 
   
   if not msg.startswith('$'):
