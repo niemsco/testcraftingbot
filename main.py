@@ -34,7 +34,7 @@ def add_decos(user,decos,category):
   alreadypresent=""
   userkey=getUserKey(user,category)
   if r.exists(userkey):
-    decoslist = Convert(r.keys(userkey))
+    decoslist = Convert(r.keys(userkey).decode())
   else:
     decoslist = []
   
@@ -48,7 +48,7 @@ def add_decos(user,decos,category):
   #it was required to move to sorted per heroku recommendation
   sorted(decoslist);
   r.set(userkey, ' '.join(decoslist))
-  print(r.get(userkey))
+  #print(r.get(userkey))
 
   if len(alreadypresent)==0:
     return "Decos added. Happy crafting!"
@@ -87,8 +87,7 @@ def show_msg(user,category):
   userkey=getUserKey(user, category)
   if not r.exists(userkey): return ["Planned decos: none"]
   
-  print(r.get(userkey))
-  decoslist = Convert(r.get(userkey))
+  decoslist = Convert(r.get(userkey).decode())
   total=len(decoslist)
   if total==0: return ["Planned decos: none"]
     
