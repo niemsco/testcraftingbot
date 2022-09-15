@@ -32,7 +32,7 @@ def add_decos(user,decos,category):
   print(decoslist)
   alreadypresent=""
   #userkey=getUserKey(user,category)
-  if decolist is None:
+  if decoslist is None:
   #  decoslist = db[userkey]
   #else:
     decoslist = []
