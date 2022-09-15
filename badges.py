@@ -3,7 +3,11 @@ from os import environ
 
 #from discord.ext import commands
 from PIL import Image
+r = redis.from_url(os.environ.get("REDIS_URL"))
 
+def Convert(string):
+    li = list(string.split(" "))
+    return li
 
 def badgeCategories(): # category names can't contain tilda '~', lowercase preferred
   return ['easter','catlorette','mybadges','holiday','fitness']
