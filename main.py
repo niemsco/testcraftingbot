@@ -1,5 +1,8 @@
 import discord
 import os
+import redis
+
+
 from os import environ
 #environ["REPLIT_DB_URL"] = "https://kv.replit.com/v0/eyJhbGciOiJIUzUxMiIsImlzcyI6ImNvbm1hbiIsImtpZCI6InByb2Q6MSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb25tYW4iLCJleHAiOjE2NjMxOTk1MzAsImlhdCI6MTY2MzA4NzkzMCwiZGF0YWJhc2VfaWQiOiI5NWI0MjhiNy04NGE3LTQ5ODktYmZiZC01NDNhMzcxYWQzNmIiLCJ1c2VyIjoiU2NvdHROaWVtYW5uIiwic2x1ZyI6IlN3ZWV0Qm90In0.PqKEYwiSkGuYswO7NhMV5utCgk8PAhNoV81OcJCIv6FaZe7emOOG9M1KutF-n9GV_nvRLO6ordKFMq9sQdm37A"
 environ["REPLIT_DB_URL"] = "https://kv.replit.com/v0/eyJhbGciOiJIUzUxMiIsImlzcyI6ImNvbm1hbiIsImtpZCI6InByb2Q6MSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb25tYW4iLCJleHAiOjE2NjMzMjIyNzIsImlhdCI6MTY2MzIxMDY3MiwiZGF0YWJhc2VfaWQiOiI5NWI0MjhiNy04NGE3LTQ5ODktYmZiZC01NDNhMzcxYWQzNmIiLCJ1c2VyIjoiU2NvdHROaWVtYW5uIiwic2x1ZyI6IlN3ZWV0Qm90In0.FSoG-qK70XAq837M-rHcL63XxGi5dVGpngvjsYbTBQOHBLkUQePCcDdkCByRQpz8zxSsM80gsk_79VyXwwOt-g"
@@ -11,6 +14,7 @@ from tcc import room, stars3k, helptcc, errtcc
 from clubevent import maxstarshelper,goalstarshelper
 from badges import badgeAddMulti, badgeClear, getBadges
 from keep_alive import keep_alive
+r = redis.from_url(os.environ.get("REDIS_URL"))
 
 def add_decos(user,decos,category):
   if category=="": category='cat'
