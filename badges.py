@@ -47,7 +47,7 @@ def badgeClear(userId,category):
   user=stripUserId(userId)
   hash='badges~'+str(user)+"~"+category
   #db[hash]=[]
-  r.del(hash)
+  r.delete(hash)
   return
 
 def combineImg(list_im): #pass in array of images
