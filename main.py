@@ -57,8 +57,10 @@ def add_decos(user,decos,category):
 def remove_decos(user,decos,category):
   if category=="": category='cat'
   userkey=getUserKey(user,category)
-  if userkey not in db.keys(): return "You do not have any decos in your list."
-  decoslist = db[userkey]
+  if not r.exists(userkey): return "You do not have any decos in your list."
+ 
+  decoslist = Convert(r.keys(userkey).decode())
+  #decoslist = db[userkey]
   
   argAry=interpretArgs(decos,category)
   if len(argAry)==0: return "Expected syntax: $remove floorname [startingdeco] [endingdeco]"
@@ -72,7 +74,8 @@ def remove_decos(user,decos,category):
     if hash in decoslist:
       decoslist.remove(hash)
   
-  db[userkey] = decoslist
+  #db[userkey] = decoslist
+  r.set(userkey, ' '.join(decoslist))
   return "Decos removed. Yeet!"
 
 def clear_decos(user, category):
