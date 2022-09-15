@@ -24,9 +24,12 @@ def add_decos(user,decos,category):
   if getRecipe(category,floor,1)=="Invalid floor": return "Floor name not recognized. Check spelling, and enter the floor name as one word."
   minDeco=int(argAry[1])
   maxDeco=int(argAry[2])
-
-  alreadypresent=""
+  
   userkey=getUserKey(user,category)
+  #REDIS CODE
+  decoslist = r.get(userkey)
+  alreadypresent=""
+  #userkey=getUserKey(user,category)
   if userkey in db.keys():
     decoslist = db[userkey]
   else:
