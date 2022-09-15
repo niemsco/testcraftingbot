@@ -84,7 +84,8 @@ def remove_decos(user,decos,category):
 def clear_decos(user, category):
   if category=="": category='cat'
   userkey=getUserKey(user, category)
-  if userkey in db.keys(): del db[userkey]
+  if r.exists(userkey): r.delete(userkey)
+  #if userkey in db.keys(): del db[userkey]
   return "Decos cleared."
 
 def show_msg(user,category):
