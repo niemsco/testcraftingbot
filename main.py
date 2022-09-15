@@ -377,53 +377,7 @@ async def on_message(message):
     return
   #end of dog game section
     
-  if msg.startswith('$hoard'):
-    userkey = 'hoard~'+str(user)
-   # if userkey not in db.keys(): db[userkey]=0
-  #  if msg.startswith('$hoardshow'):
-  #    await message.channel.send("Total: "+str(db["hoard"])+"\nMy lines: "+str(db[userkey]))
-      return
-    if msg.startswith('$hoardall'):
-      if message.author.id not in [721843920404742205,655087300140597268]:
-        await message.channel.send(randQuote())
-        return
-   #   outmsg="**Total:** "+str(db["hoard"])
-   #   keys=db.prefix("hoard~")
-      for key in keys:
-   #     dispkey = key.replace("hoard~","hoarddisp~")
-    #    if int(db[key]) > 0: outmsg=outmsg+"\n"+db[dispkey]+": "+str(db[key])
- #     await message.channel.send(outmsg)
-      return
-    if msg.startswith('$hoardclear'):
-      if message.author.id not in [721843920404742205,655087300140597268]:
-        await message.channel.send(randQuote())
-        return
-      keys=db.prefix("hoard~")
-      for key in keys: del db[key]
-  ##    db["hoard"]=0
-      await message.channel.send("Hoard reset!")
-      return
 
-    #otherwise message is $hoard or $hoardremove
-    if msg.startswith('$hoardremove'):
-      lines = msg.split("$hoardremove",1)[1]
-      abs=-1
-    else: 
-      lines = msg.split("$hoard",1)[1]
-      abs=1
-    try: lines = int(lines)
-    except: 
-      await message.channel.send("Invalid line count.")
-      return
-
-    lines = lines*abs #handle negative numbers
-    db[userkey] = int(db[userkey])+lines
-    dispkey = 'hoarddisp~'+str(user)
-    if userflag==0: db[dispkey] = message.author.display_name
-    else: db[dispkey] = user
-    db["hoard"] = int(db["hoard"])+lines
-    await message.channel.send("Lines added! Total: "+ str(db["hoard"]))
-    return
 
   #Sweetling crafting bot badges :)
   if msg.startswith('$badge'):
