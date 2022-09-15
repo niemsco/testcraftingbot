@@ -45,6 +45,8 @@ def add_decos(user,decos,category):
     decoslist = Convert(r.get(userkey))
   else:
     decoslist = []
+  
+print(decoslist)
   for x in range (minDeco, maxDeco+1):
     hash=floor+"/"+str(x)
     if hash not in decoslist:
