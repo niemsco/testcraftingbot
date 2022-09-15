@@ -53,7 +53,7 @@ def add_decos(user,decos,category):
   #decoslist.sort()
   #it was required to move to sorted per heroku recommendation
   sorted(decoslist);
-  r.set(userkey, listToString(decoslist);
+  r.set(userkey, listToString(decoslist)
   #db[userkey] = decoslist
 
   if len(alreadypresent)==0:
