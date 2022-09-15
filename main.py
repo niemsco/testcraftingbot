@@ -38,10 +38,11 @@ def add_decos(user,decos,category):
   if getRecipe(category,floor,1)=="Invalid floor": return "Floor name not recognized. Check spelling, and enter the floor name as one word."
   minDeco=int(argAry[1])
   maxDeco=int(argAry[2])
-  
+
+  alreadypresent=""
   userkey=getUserKey(user,category)
-  if r.exists('userkey'):
-    decoslist = Convert(r.get(userkey))
+  if userkey in db.keys():
+    decoslist = db[userkey]
   else:
     decoslist = []
   for x in range (minDeco, maxDeco+1):
@@ -53,8 +54,7 @@ def add_decos(user,decos,category):
   #decoslist.sort()
   #it was required to move to sorted per heroku recommendation
   sorted(decoslist);
-  r.set(userkey, listToString(decoslist)
-  #db[userkey] = decoslist
+  db[userkey] = decoslist
 
   if len(alreadypresent)==0:
     return "Decos added. Happy crafting!"
