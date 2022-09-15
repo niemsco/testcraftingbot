@@ -34,7 +34,7 @@ def add_decos(user,decos,category):
   alreadypresent=""
   userkey=getUserKey(user,category)
   if r.exists(userkey):
-    decoslist = Convert(r.get(userkey))
+    decoslist = Convert(r.keys(userkey))
   else:
     decoslist = []
   
