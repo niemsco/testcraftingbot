@@ -15,6 +15,20 @@ from badges import badgeAddMulti, badgeClear, getBadges
 from keep_alive import keep_alive
 r = redis.from_url(os.environ.get("REDIS_URL"))
 
+def Convert(string):
+    li = list(string.split(" "))
+    return li
+  
+def listToString(s):
+    # initialize an empty string
+    str1 = ""
+    # traverse in the string
+    for ele in s:
+        str1 += ele
+ 
+    # return string
+    return str1
+
 def add_decos(user,decos,category):
   if category=="": category='cat'
   argAry=interpretArgs(decos,category)
@@ -26,15 +40,9 @@ def add_decos(user,decos,category):
   maxDeco=int(argAry[2])
   
   userkey=getUserKey(user,category)
-  #REDIS CODE
-  decoslist = r.get(userkey)
-  print('decolist')
-  print(decoslist)
-  alreadypresent=""
-  #userkey=getUserKey(user,category)
-  if decoslist is None:
-  #  decoslist = db[userkey]
-  #else:
+  if r.exists('userkey'):
+    decoslist = Convert(r.get(userkey))
+  else:
     decoslist = []
   for x in range (minDeco, maxDeco+1):
     hash=floor+"/"+str(x)
@@ -45,7 +53,7 @@ def add_decos(user,decos,category):
   #decoslist.sort()
   #it was required to move to sorted per heroku recommendation
   sorted(decoslist);
-  r.set(userkey, decoslist)
+  r.set(userkey, listToString(decoslist);
   #db[userkey] = decoslist
 
   if len(alreadypresent)==0:
