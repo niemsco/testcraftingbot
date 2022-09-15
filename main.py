@@ -41,8 +41,8 @@ def add_decos(user,decos,category):
 
   alreadypresent=""
   userkey=getUserKey(user,category)
-  if userkey in db.keys():
-    decoslist = db[userkey]
+  if r.exists(userkey):
+    decoslist = Convert(r.get(userkey))
   else:
     decoslist = []
   for x in range (minDeco, maxDeco+1):
@@ -53,8 +53,8 @@ def add_decos(user,decos,category):
       alreadypresent=alreadypresent+", "+hash
   #decoslist.sort()
   #it was required to move to sorted per heroku recommendation
-  sorted(decoslist);
-  db[userkey] = decoslist
+  sorted(decoslist)
+  r.set(userkey, listToString(decoslist))
 
   if len(alreadypresent)==0:
     return "Decos added. Happy crafting!"
