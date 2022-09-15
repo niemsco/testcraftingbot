@@ -263,11 +263,11 @@ async def on_message(message):
     return
 
   if msg.startswith('$room'):
-    await message.channel.send(room(r.get("multiplier").decode())
+    await message.channel.send(room(r.get("multiplier").decode()))
     return
 
   if msg.startswith('$stars3k'):
-    await message.channel.send(stars3k(r.get("multiplier").decode())
+    await message.channel.send(stars3k(r.get("multiplier").decode()))
     return
 
   if msg.startswith('$pot'):
@@ -277,7 +277,7 @@ async def on_message(message):
       await message.channel.send("Community pot cleared.")
       return
     if msg.startswith('$potshow'):
-      await message.channel.send("Community pot: "+ str(r.get("community pot").decode())
+      await message.channel.send("Community pot: "+ str(r.get("community pot").decode()))
       return
     mats = msg.split("$pot",1)[1]
     #db["community pot"] = int(db["community pot"])+int(mats)
