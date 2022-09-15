@@ -59,7 +59,7 @@ def remove_decos(user,decos,category):
   userkey=getUserKey(user,category)
   if not r.exists(userkey): return "You do not have any decos in your list."
  
-  decoslist = Convert(r.keys(userkey).decode())
+  decoslist = Convert(r.get(userkey).decode())
   #decoslist = db[userkey]
   
   argAry=interpretArgs(decos,category)
