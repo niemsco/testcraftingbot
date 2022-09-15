@@ -30,10 +30,10 @@ def add_decos(user,decos,category):
   decoslist = r.get(userkey)
   alreadypresent=""
   #userkey=getUserKey(user,category)
-  if userkey in db.keys():
-    decoslist = db[userkey]
-  else:
-    decoslist = []
+  #if userkey in db.keys():
+  #  decoslist = db[userkey]
+  #else:
+  #  decoslist = []
   for x in range (minDeco, maxDeco+1):
     hash=floor+"/"+str(x)
     if hash not in decoslist:
@@ -43,7 +43,8 @@ def add_decos(user,decos,category):
   #decoslist.sort()
   #it was required to move to sorted per heroku recommendation
   sorted(decoslist);
-  db[userkey] = decoslist
+  r.set(userkey, decoslist)
+  #db[userkey] = decoslist
 
   if len(alreadypresent)==0:
     return "Decos added. Happy crafting!"
@@ -79,9 +80,10 @@ def clear_decos(user, category):
 def show_msg(user,category):
   if category=="": category='cat'
   userkey=getUserKey(user, category)
-  if userkey not in db.keys(): return ["Planned decos: none"]
+  decoslist = r.get(userkey)
+  if decoslist is none: return ["Planned decos: none"]
   
-  decoslist = db[userkey]
+  
   total=len(decoslist)
   if total==0: return ["Planned decos: none"]
     
